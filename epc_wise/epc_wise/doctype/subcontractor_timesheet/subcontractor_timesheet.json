@@ -1,6 +1,9 @@
 {
  "actions": [],
+<<<<<<< HEAD
  "allow_copy": 1,
+=======
+>>>>>>> f656e3eed6ebe813058e70744beab2b5b82ffd54
  "allow_import": 1,
  "autoname": "naming_series:",
  "creation": "2026-01-29 23:33:35.315301",
@@ -253,7 +256,11 @@
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
+<<<<<<< HEAD
  "modified": "2026-01-31 22:30:12.108080",
+=======
+ "modified": "2026-01-30 17:48:19.605036",
+>>>>>>> f656e3eed6ebe813058e70744beab2b5b82ffd54
  "modified_by": "Administrator",
  "module": "EPC Wise",
  "name": "Subcontractor Timesheet",
