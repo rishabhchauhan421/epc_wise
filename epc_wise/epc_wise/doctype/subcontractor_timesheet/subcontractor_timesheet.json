@@ -1,9 +1,6 @@
 {
  "actions": [],
-<<<<<<< HEAD
  "allow_copy": 1,
-=======
->>>>>>> f656e3eed6ebe813058e70744beab2b5b82ffd54
  "allow_import": 1,
  "autoname": "naming_series:",
  "creation": "2026-01-29 23:33:35.315301",
@@ -52,11 +49,18 @@
    "set_only_once": 1
   },
   {
-   "fieldname": "company",
+   "fieldname": "subcontractor",
    "fieldtype": "Link",
-   "label": "Company",
-   "options": "Company",
-   "remember_last_selected_value": 1
+   "label": "Sub Contractor",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "parent_project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_3",
@@ -74,15 +78,71 @@
    "read_only": 1
   },
   {
-   "fieldname": "parent_project",
+   "bold": 1,
+   "fetch_from": "subcontractor.supplier_name",
+   "fieldname": "subcontractor_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Sub Contractor Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
    "fieldtype": "Link",
-   "label": "Project",
-   "options": "Project",
-   "reqd": 1
+   "label": "Company",
+   "options": "Company",
+   "remember_last_selected_value": 1
   },
   {
    "fieldname": "working_hours",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "work_date",
+   "fieldtype": "Date",
+   "label": "Work Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "in_time",
+   "fieldtype": "Time",
+   "label": "In Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "out_time",
+   "fieldtype": "Time",
+   "label": "Out Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_gnwa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "total_hours",
+   "fieldtype": "Float",
+   "label": "Total Hours",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "ot_hours",
+   "fieldtype": "Float",
+   "label": "OT Hours",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "description": "\u20b915 per day if OT > 2 hrs\u201d",
+   "fieldname": "overtime_meal_extra",
+   "fieldtype": "Check",
+   "label": "Overtime Meal Extra"
   },
   {
    "collapsible": 1,
@@ -187,80 +247,13 @@
    "options": "Subcontractor Timesheet",
    "print_hide": 1,
    "read_only": 1
-  },
-  {
-   "fieldname": "in_time",
-   "fieldtype": "Time",
-   "label": "In Time",
-   "reqd": 1
-  },
-  {
-   "fieldname": "out_time",
-   "fieldtype": "Time",
-   "label": "Out Time",
-   "reqd": 1
-  },
-  {
-   "fieldname": "column_break_gnwa",
-   "fieldtype": "Column Break"
-  },
-  {
-   "bold": 1,
-   "fetch_from": "subcontractor.supplier_name",
-   "fieldname": "subcontractor_name",
-   "fieldtype": "Data",
-   "in_global_search": 1,
-   "label": "Sub Contractor Name",
-   "read_only": 1
-  },
-  {
-   "fieldname": "work_date",
-   "fieldtype": "Date",
-   "label": "Work Date",
-   "reqd": 1
-  },
-  {
-   "allow_on_submit": 1,
-   "default": "0",
-   "fieldname": "ot_hours",
-   "fieldtype": "Float",
-   "label": "OT Hours",
-   "precision": "2",
-   "read_only": 1
-  },
-  {
-   "default": "1",
-   "description": "\u20b915 per day if OT > 2 hrs\u201d",
-   "fieldname": "overtime_meal_extra",
-   "fieldtype": "Check",
-   "label": "Overtime Meal Extra"
-  },
-  {
-   "fieldname": "subcontractor",
-   "fieldtype": "Link",
-   "label": "Sub Contractor",
-   "options": "Supplier",
-   "reqd": 1
-  },
-  {
-   "allow_on_submit": 1,
-   "default": "0",
-   "fieldname": "total_hours",
-   "fieldtype": "Float",
-   "label": "Total Hours",
-   "precision": "0",
-   "read_only": 1
   }
  ],
  "icon": "fa fa-clock-o",
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
-<<<<<<< HEAD
- "modified": "2026-01-31 22:30:12.108080",
-=======
- "modified": "2026-01-30 17:48:19.605036",
->>>>>>> f656e3eed6ebe813058e70744beab2b5b82ffd54
+ "modified": "2026-02-07 11:04:27.307681",
  "modified_by": "Administrator",
  "module": "EPC Wise",
  "name": "Subcontractor Timesheet",
@@ -338,7 +331,7 @@
  ],
  "row_format": "Dynamic",
  "sort_field": "creation",
- "sort_order": "ASC",
+ "sort_order": "DESC",
  "states": [],
  "title_field": "subcontractor_name"
 }

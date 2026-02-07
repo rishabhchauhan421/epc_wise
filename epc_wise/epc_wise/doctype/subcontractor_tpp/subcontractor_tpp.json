@@ -70,7 +70,7 @@
    "reqd": 1
   },
   {
-   "default": "year(today())",
+   "default": "2026",
    "fieldname": "year",
    "fieldtype": "Int",
    "label": "Year",
@@ -128,7 +128,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-01-30 19:03:19.464779",
+ "modified": "2026-02-07 11:08:04.110970",
  "modified_by": "Administrator",
  "module": "EPC Wise",
  "name": "Subcontractor TPP",
