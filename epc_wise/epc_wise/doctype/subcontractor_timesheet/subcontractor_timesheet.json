@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_copy": 1,
+ "allow_copy": 1,
  "allow_import": 1,
  "autoname": "naming_series:",
  "creation": "2026-01-29 23:33:35.315301",
@@ -57,7 +58,18 @@
   },
   {
    "fieldname": "parent_project",
+   "fieldname": "subcontractor",
    "fieldtype": "Link",
+   "label": "Sub Contractor",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "parent_project",
+   "fieldtype": "Link",
+   "label": "Project",
+   "options": "Project",
+   "reqd": 1
    "label": "Project",
    "options": "Project",
    "reqd": 1
@@ -88,6 +100,16 @@
   },
   {
    "fieldname": "company",
+   "bold": 1,
+   "fetch_from": "subcontractor.supplier_name",
+   "fieldname": "subcontractor_name",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "label": "Sub Contractor Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "company",
    "fieldtype": "Link",
    "label": "Company",
    "options": "Company",
@@ -96,6 +118,53 @@
   {
    "fieldname": "working_hours",
    "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "work_date",
+   "fieldtype": "Date",
+   "label": "Work Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "in_time",
+   "fieldtype": "Time",
+   "label": "In Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "out_time",
+   "fieldtype": "Time",
+   "label": "Out Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_gnwa",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "total_hours",
+   "fieldtype": "Float",
+   "label": "Total Hours",
+   "precision": "0",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "ot_hours",
+   "fieldtype": "Float",
+   "label": "OT Hours",
+   "precision": "2",
+   "read_only": 1
+  },
+  {
+   "default": "1",
+   "description": "\u20b915 per day if OT > 2 hrs\u201d",
+   "fieldname": "overtime_meal_extra",
+   "fieldtype": "Check",
+   "label": "Overtime Meal Extra"
   },
   {
    "fieldname": "work_date",
@@ -253,7 +322,7 @@
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-02-07 11:54:17.704209",
+ "modified": "2026-04-09 16:14:30.099847",
  "modified_by": "Administrator",
  "module": "EPC Wise",
  "name": "Subcontractor Timesheet",
@@ -264,7 +333,6 @@
    "amend": 1,
    "cancel": 1,
    "create": 1,
-   "delete": 1,
    "email": 1,
    "print": 1,
    "read": 1,
@@ -278,7 +346,6 @@
    "amend": 1,
    "cancel": 1,
    "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
@@ -293,7 +360,6 @@
    "amend": 1,
    "cancel": 1,
    "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,
@@ -312,9 +378,7 @@
   },
   {
    "amend": 1,
-   "cancel": 1,
    "create": 1,
-   "delete": 1,
    "email": 1,
    "read": 1,
    "report": 1,
@@ -329,15 +393,19 @@
    "write": 1
   },
   {
+   "amend": 1,
+   "cancel": 1,
    "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
+   "import": 1,
    "print": 1,
    "read": 1,
    "report": 1,
    "role": "Sub Contractor Manager",
+   "select": 1,
    "share": 1,
+   "submit": 1,
    "write": 1
   }
  ],

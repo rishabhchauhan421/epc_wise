@@ -1,0 +1,224 @@
+{
+ "actions": [],
+ "allow_copy": 1,
+ "allow_rename": 1,
+ "autoname": "OPR-.YYYY.-.#######.",
+ "creation": "2026-04-02 16:34:13.076914",
+ "default_view": "List",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_lsiu",
+  "company",
+  "payment_for_category",
+  "due_date",
+  "description",
+  "approval_1",
+  "approval_2",
+  "approval_3",
+  "paid_from_account",
+  "status",
+  "amended_from",
+  "column_break_kqwl",
+  "party_type",
+  "party",
+  "payment_mode",
+  "bank_account",
+  "bank_account_no",
+  "branch_code"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_lsiu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "payment_for_category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Payment for Category",
+   "options": "Payment for Category",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "party_type",
+   "fieldtype": "Link",
+   "label": "Party Type",
+   "options": "DocType"
+  },
+  {
+   "depends_on": "eval:doc.party_type",
+   "fieldname": "party",
+   "fieldtype": "Dynamic Link",
+   "label": "Party Code",
+   "options": "party_type"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "approval_1",
+   "fieldtype": "Check",
+   "label": "Verified by Accounts",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "approval_2",
+   "fieldtype": "Check",
+   "label": "Approved by Sir",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Transaction Status",
+   "options": "Pending\nPaid\nWaiting for Funds\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Payment Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "payment_mode",
+   "fieldtype": "Link",
+   "label": "Payment Mode",
+   "options": "Mode of Payment",
+   "reqd": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "approval_3",
+   "fieldtype": "Check",
+   "label": "Approved by Ma'am",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Outgoing Payment Request",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_kqwl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "Bank Account"
+  },
+  {
+   "fetch_from": "bank_account.bank_account_no",
+   "fieldname": "bank_account_no",
+   "fieldtype": "Data",
+   "label": "Bank Account No",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "bank_account.branch_code",
+   "fieldname": "branch_code",
+   "fieldtype": "Data",
+   "label": "Branch Code",
+   "read_only": 1
+  },
+  {
+   "fieldname": "paid_from_account",
+   "fieldtype": "Link",
+   "label": "Paid From Account",
+   "options": "Bank Account"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-03 17:09:29.609496",
+ "modified_by": "Administrator",
+ "module": "EPC Wise",
+ "name": "Outgoing Payment Request",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Payments User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Leadership",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1,
+ "track_views": 1
+}
