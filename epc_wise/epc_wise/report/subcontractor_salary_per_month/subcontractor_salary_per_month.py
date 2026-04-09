@@ -65,14 +65,14 @@ def get_data(filters):
     for sc in subcontractors:
         # 1. Fetch Timesheets
         timesheets = frappe.get_all("Subcontractor Timesheet",
-            filters={"subcontractor": sc.name, "work_date": ["between", [start_date, end_date]]},
+            filters={"subcontractor": sc.name, "work_date": ["between", [start_date, end_date]], "docstatus": 1},
             fields=["work_date", "ot_hours", "overtime_meal_extra"])
 
         worked_dates = {getdate(ts.work_date) for ts in timesheets}
 
         # 2. Fetch TPP (Contract and Deduction)
         tpp = frappe.db.get_value("Subcontractor TPP",
-            {"subcontractor": sc.name, "month": month_name, "year": filters.get("year")},
+            {"subcontractor": sc.name, "month": month_name, "year": filters.get("year"), "docstatus": 1},
             ["project", "monthly_work_amount", "tppamount"], as_dict=1)
 
         if filters.get("project") and (not tpp or tpp.project != filters.get("project")):
